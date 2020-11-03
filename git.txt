@@ -1,0 +1,28 @@
+// COMMIT AND VIEW CONFLICTS WITH MASTER
+git add .
+git commit -m "message"
+git checkout master
+git pull origin master
+git checkout mybranch
+git merge master
+
+// IF YOU HAVE NOT COMMITTED A MISTAKE YET
+git reset --hard 
+git log
+git reset --hard commit number from log
+git help log
+
+// UNDO AN ERRONEOUS COMMIT
+// copy commit ID from log
+git revert paste commit ID
+logs a new commit that reverses the previous commit
+
+// DELETE A BRANCH
+// have to delete on server and locally 
+git push origin :lyleBranch //deletes branch on server
+git checkout master // move to another branch to delete locally
+git branch -D lyleBranch //deletes branch locally
+
+// SHOW ALL BRANCHES
+git branch -r //shows remote branches
+
