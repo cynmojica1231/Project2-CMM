@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <title>Add Your Recipe</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+        <a class="navbar-brand" href="./index.html"><h2>RecipeMe</h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./search.html">New Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./recipes.html">My Recipes</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./new-recipe.html">Add A Recipe</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" id="tagline">
+        <br>
+        <h2>Add your own recipe to</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="add-recipe">
+        <form>
+          <div class="form-group" method="POST">
+            <div class="row">
+              <div class="col-10-lg">
+                <label for="recipe-name">Name of Your Recipe</label>
+                <input type="text" name="recipe-name" class="form-control" id="recipe-name" placeholder="Fettuccini Alfredo">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <label for="amount[0]">Amount</label>
+                <input type="text" name="a_level[+i][0]" class="form-control amountCol" id="amount0" placeholder="1/4, half">
+              </div>
+              <div class="col-2">
+                <label for="measure[0]">Measurement</label>
+                <input type="text" name="a_level[+i][1]" class="form-control measureCol" id="measure0" placeholder="cup, tsp">
+              </div>
+              <div class="col-6">
+                <label for="ingred[0]">Ingredient Name</label>
+                <input type="text" name="a_level[+i][2]" class="form-control ingredCol" id="ingred0" placeholder="flour, salt">
+              </div>
+              <div class="col-2">
+                <label for="add-button">Add Item</label>
+                <button class="btn btn-primary" id="addButton" onclick="createNewRow(event) "> Add </button>
+              </div>
+            </div>
+            <div class="row" id="addIngred">
+            </div>
+            <br>
+            <div class="row">
+              <label for="instructions">Instructions</label>
+              <textarea type="text" class="form-control" id="instructions" rows="6" placeholder="1. Mix dry and wet ingredients."></textarea>
+            </div>
+          </div>
+          <button type="submit" id="recipe-submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  // user clicks the plus button and adds a new row to input a new ingredient
+  var i = 1;
+
+  function increment() {
+    i += 1;
+  }
+
+  function createNewRow(event) {
+    event.preventDefault();
+    var ingredDiv = document.getElementById("addIngred");
+
+    var a = document.createElement("INPUT");
+    var b = document.createElement("INPUT");
+    var c = document.createElement("INPUT");
+
+    // create input text object for each field
+    a.setAttribute("class", "form-control amountCol");
+    a.setAttribute("id", "amount[" + i + "]");
+    a.setAttribute("type", "text");
+    a.setAttribute("placeholder", "1/4, half");
+    document.body.appendChild(a);
+
+    b.setAttribute("class", "form-control measureCol");
+    b.setAttribute("id", "measure[" + i + "]")
+    b.setAttribute("type", "text");
+    b.setAttribute("placeholder", "cup, pint");
+    document.body.appendChild(b);
+
+    c.setAttribute("class", "form-control ingredCol");
+    c.setAttribute("id", "ingred[" + i + "]")
+    c.setAttribute("type", "text");
+    c.setAttribute("placeholder", "flour, salt");
+    // $("c").addClass("ingredFullWidth");
+    document.body.appendChild(c);
+
+    a.setAttribute("name", "a_level[ " + i + "][0]");
+    ingredDiv.appendChild(a);
+    b.setAttribute("name", "a_level[ " + i + "][1]");
+    ingredDiv.appendChild(b);
+    c.setAttribute("name", "a_level[ " + i + "][2]");
+    ingredDiv.appendChild(c);
+
+    increment();
+
+  }
+
+  $("#recipe-submit").on("click", function () {
+    event.preventDefault();
+
+    var recipeObject = {};
+    var foo = $("#instructions").val().trim().replace(/[, ]+/g, " ");
+    recipeObject.spoonID = 0;
+    recipeObject.name = $("#recipe-name").val().trim();
+    recipeObject.text = foo;
+    recipeObject.img =
+      "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjFx-uWnfreAhXHdN8KHd04AnAQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFood&psig=AOvVaw1CgaD05NxZKdDG1DIXbBQ3&ust=1543602392316814";
+    var ingredientArr = [];
+    for (j = 0; j < $(".amountCol").length; j++) {
+      ingredientArr.push({});
+    }
+    $('.ingredCol').each(function (i, item) {
+      ingredientArr[i].name = $(item).val();
+      ingredientArr[i].spoonID = 0;
+      ingredientArr[i].img = "https://spoonacular.com/cdn/ingredients_100x100/" + $(item).val().replace(
+        /(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g, "") + ".jpg";
+    });
+    $('.amountCol').each(function (i, item) {
+      ingredientArr[i].amount = $(item).val();
+    });
+    $('.measureCol').each(function (i, item) {
+      ingredientArr[i].unit = $(item).val();
+    });
+    console.log(recipeObject, ingredientArr);
+    $.post("/api/new-recipe", {
+      "recipe": JSON.stringify(recipeObject),
+      "ingredients": JSON.stringify(ingredientArr)
+    }, function (response) {
+      console.log(response);
+    });
+    alert("Your recipe has been added to the database!");
+    $("#recipe-name").val("");
+    $("#instructions").val("");
+    $(".ingredCol").each(function(){
+      $(this).val("");
+    });
+    $(".amountCol").each(function(){
+      $(this).val("");
+    });
+    $(".measureCol").each(function(){
+      $(this).val("");
+    });
+    $("#addIngred").empty();
+  });
+</script>
+
+</html>

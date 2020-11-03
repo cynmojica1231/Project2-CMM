@@ -1,0 +1,228 @@
+h3.title {
+  color: #90c226;
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+.navbar-brand {
+  margin: 20px;
+}
+
+.nav-item {
+  margin: 20px;
+  font-size: 20px;
+}
+
+#name {
+  float: right;
+}
+
+#tagline {
+  text-align: center;
+}
+
+#leftHome {
+  margin: 10px;
+  padding: 20px;
+  float: left;
+  /* display: inline-block; */
+  text-align: center;
+}
+
+#search {
+  width: 190px;
+}
+
+#rightHome {
+  margin: 10px;
+  padding: 20px;
+  float: right;
+  /* display: inline-block; */
+
+  text-align: center;
+}
+
+#create {
+  width: 190px;
+  vertical-align: middle;
+}
+
+.btn {
+  text-align: center;
+}
+
+#homeBtn {
+  text-align: center;
+}
+
+.form {
+  display: table-cell;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: blue(251, 85%, 42%);
+  border-color: blue;
+  color: white;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus,
+.btn-primary:focus-within {
+  background-color: black;
+  border-color: black;
+  box-shadow: 0 0 0 0.2rem rgba(7, 7, 7, 0.5);
+}
+
+#text-button {
+  background-color: #90c226;
+  border-color: #90c226;
+  color: white;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 10px 10px 0px;
+}
+
+#text-button:hover,
+#text-button:focus,
+#text-button:focus-within {
+  background-color: black;
+  border-color: black;
+  box-shadow: 0 0 0 0.2rem rgba(7, 7, 7, 0.5);
+}
+
+#close-modal {
+  border-color: #666;
+  background-color: #666;
+  color: #fff;
+  align-items: center;
+}
+
+#phone-number {
+  margin: 10px 0px 10px 10px;
+  padding: 24px 10px;
+}
+
+#column-head {
+  text-align: center;
+}
+
+#add-recipe {
+  margin: 10px;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 20px;
+}
+
+#addButton {
+  background-color: darkgray;
+  border-color: darkgray;
+  color: black;
+  align-items: center;
+  padding: 6px;
+}
+
+.form-control {
+  margin: 10px;
+  padding: 10px;
+}
+
+#instructions {
+  margin: 0px;
+}
+
+.amountCol,
+.measureCol {
+  display: inline-block;
+  margin: 14px;
+  width: 100px;
+  padding: 10px;
+}
+
+.ingredCol {
+  display: inline-block;
+  margin: 12px;
+  width: 430px;
+  padding: 10px;
+}
+
+#amount0,
+#measure0,
+#ingred0 {
+  display: block;
+  margin: 0px auto;
+  width: 100%;
+  padding: 10px;
+}
+
+#recipe-name {
+  display: inline-block;
+  margin: 12px;
+  width: 550px;
+  padding: 10px;
+}
+
+.chosen .card-body {
+  transition: 0.5s ease;
+  background-color: #90c226 !important;
+  color: rgb(248, 249, 247) !important;
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.ingred-card {
+  max-height: 200px;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  margin: 10px;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 2px solid #90c226;
+  border-radius: 0.25rem;
+}
+
+.img.card-img-top:hover {
+  filter: brightness(110%);
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  transition: 0.5s ease;
+  background-color: #90c226;
+}
+
+.recipe-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  /* Also can take single values to make all sides the same, or 2 values (vert/horz), or 3 values (top/horz/bottom). */
+}
+#recipes-Cards > .card {
+  width: 47%;
+  justify-content: space-between;
+}
+
+#printbut > .btn {
+  padding: 10px;
+  margin: 10px 10px 10px 0px;
+  height: 50px;
+  vertical-align: middle;
+}
